@@ -1,0 +1,8 @@
+<h1>CASH TRACKER</h1>
+
+<% @users.each do |user| %>
+<p>Hello, <%= user.full_name %>.</p> 
+<p>Your current balance is £<%= user.budget %>.</p>
+<% end %>
+
+<a href="/transactions">Check your transactions.</a>
