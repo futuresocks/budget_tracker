@@ -9,7 +9,7 @@ class Transaction
     @id = options['id'].to_i if options ['id']
     @merchant = options['merchant']
     @tag = options['tag']
-    @cost = options['cost'].to_i
+    @cost = '%.2f' % options['cost']
   end
 
   def save
@@ -23,7 +23,7 @@ class Transaction
   end
 
   def self.find(tag)
-    sql = "SELECT * FROM transactions WHERE tag=#{tag};"
+    sql = "SELECT * FROM transactions WHERE tag = '#{@tag}';"
     Transaction.new(SqlRunner.run(sql).first)
   end
 
