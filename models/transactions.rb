@@ -27,7 +27,10 @@ class Transaction
     Transaction.new(SqlRunner.run(sql).first)
   end
 
-
+  def self.total
+    sql = "SELECT * FROM transactions;"
+    SqlRunner.run(sql).map{|transaction| transaction['cost'].to_f}.inject(0, :+)
+  end
 
 
 end

@@ -6,5 +6,8 @@
 <p>Goods purchased: <%= transaction.tag %></p>
 <% end %>
 
+<hr  />
+<p>Current total expenditure: £<%= '%.2f' % (@total.to_f) %></p>
+
 <a href="/transaction/new">Add a new transaction</a>
 <a href="/">View your budget</a>
