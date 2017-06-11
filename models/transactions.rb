@@ -22,9 +22,9 @@ class Transaction
     SqlRunner.run(sql).map { |options| Transaction.new(options)}
   end
 
-  def self.find(tag)
-    sql = "SELECT * FROM transactions WHERE tag = '#{@tag}';"
-    Transaction.new(SqlRunner.run(sql).first)
+  def self.find(search)
+    sql = "SELECT * FROM transactions WHERE transactions.tag = '#{search}';"
+    SqlRunner.run(sql).map { |options| Transaction.new(options)}
   end
 
   def self.total

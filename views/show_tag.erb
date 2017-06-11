@@ -1,13 +1,11 @@
-<h1>TRANSACTIONS</h1>
+<h1>Your spending on <%= params[:tag] %>:</h1>
 
 <% @transactions.each do |transaction| %>
 <p>Amount: £<%= '%.2f' % transaction.cost %></p>
 <p>Merchant: <%= transaction.merchant %></p>
-<p>Goods purchased: <a href="/transactions/<%= transaction.tag%>"><%= transaction.tag %></a></p>
 <hr  />
 <% end %>
-
-<p>Current total expenditure: £<%= '%.2f' % (@total.to_f) %></p>
-
+<p>Total spent on <%= params[:tag]%> = £<%= '%.2f' % @transactions.map{|transaction| transaction.cost.to_f}.inject(0, :+)%></p>
+<hr  />
 <a href="/transaction/new">Add a new transaction</a>
 <a href="/">View your budget</a>

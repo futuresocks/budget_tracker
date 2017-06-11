@@ -1,5 +1,5 @@
-DROP TABLE transactions;
-DROP TABLE users;
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
 id SERIAL8 PRIMARY KEY,

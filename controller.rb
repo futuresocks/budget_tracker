@@ -21,6 +21,11 @@ get '/transaction/new' do
   erb(:new_transaction)
 end
 
+get '/transactions/:tag' do
+  @transactions = Transaction.find(params[:tag])
+  erb(:show_tag)
+end
+
 post '/transactions' do
   @transaction = Transaction.new(params)
   @transaction.save()
