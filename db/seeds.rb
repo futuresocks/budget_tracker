@@ -31,6 +31,7 @@ user1.save
 transaction1.save
 transaction2.save
 transaction3.save
+user1.purchase_all
 
 binding.pry
 nil

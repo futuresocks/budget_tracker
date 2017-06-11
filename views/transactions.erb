@@ -1,9 +1,9 @@
 <h1>TRANSACTIONS</h1>
 
 <% @transactions.each do |transaction| %>
-<p>Amount: £<%= transaction.cost %></p>
+<p>Amount: £<%= '%.2f' % transaction.cost %></p>
 <p>Merchant: <%= transaction.merchant %></p>
-<p>Goods purchased: <% transaction.tag %></p>
+<p>Goods purchased: <%= transaction.tag %></p>
 <% end %>
 
 <a href="/transaction/new">Add a new transaction</a>

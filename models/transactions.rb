@@ -9,7 +9,7 @@ class Transaction
     @id = options['id'].to_i if options ['id']
     @merchant = options['merchant']
     @tag = options['tag']
-    @cost = '%.2f' % options['cost']
+    @cost = options['cost'].to_f
   end
 
   def save
