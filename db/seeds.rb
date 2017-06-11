@@ -27,11 +27,12 @@ transaction3 = Transaction.new({
   'cost' => 1.30
 })
 
+User.clear
+Transaction.clear
 user1.save
 transaction1.save
 transaction2.save
 transaction3.save
-user1.purchase_all
 
 binding.pry
 nil

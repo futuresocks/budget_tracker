@@ -7,6 +7,7 @@ require_relative ('models/transactions')
 
 get '/' do
   @users = User.all
+  @total = Transaction.total
   erb(:budget)
 end
 
@@ -16,7 +17,14 @@ get '/transactions' do
   erb(:transactions)
 end
 
-get '/transactions/new' do
-  @transactions = Transaction.all
-  erb(:new_transactions)
+get '/transaction/new' do
+  erb(:new_transaction)
+end
+
+post '/transactions' do
+  @transaction = Transaction.new(params)
+  @transaction.save()
+  @users = User.all
+  @total = Transaction.total
+  erb(:transaction_created)
 end

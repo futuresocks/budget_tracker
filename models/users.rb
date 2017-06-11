@@ -17,6 +17,11 @@ class User
     SqlRunner.run(sql).map { |options| User.new(options)}
   end
 
+  def self.clear()
+    sql = "DELETE FROM users;"
+    SqlRunner.run(sql)
+  end
+
   def save
     sql = "INSERT INTO users (first_name, last_name, budget) VALUES ('#{@first_name}', '#{@last_name}', #{@budget}) RETURNING *;"
     @id = SqlRunner.run(sql)[0]['id'].to_i()
@@ -24,11 +29,6 @@ class User
 
   def full_name
     return "#{@first_name} #{@last_name}"
-  end
-
-  def purchase_all
-    sql = "SELECT transactions.cost FROM transactions;"
-    @budget -= SqlRunner.run(sql).map{|transaction| transaction['cost'].to_f}.inject(0, :+)
   end
 
 

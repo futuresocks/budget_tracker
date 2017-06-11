@@ -4,9 +4,9 @@
 <p>Amount: £<%= '%.2f' % transaction.cost %></p>
 <p>Merchant: <%= transaction.merchant %></p>
 <p>Goods purchased: <%= transaction.tag %></p>
+<hr  />
 <% end %>
 
-<hr  />
 <p>Current total expenditure: £<%= '%.2f' % (@total.to_f) %></p>
 
 <a href="/transaction/new">Add a new transaction</a>

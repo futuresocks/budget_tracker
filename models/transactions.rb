@@ -32,5 +32,10 @@ class Transaction
     SqlRunner.run(sql).map{|transaction| transaction['cost'].to_f}.inject(0, :+)
   end
 
+  def self.clear()
+    sql = "DELETE FROM transactions;"
+    SqlRunner.run(sql)
+  end
+
 
 end
