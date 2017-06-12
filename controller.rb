@@ -21,7 +21,7 @@ get '/transaction/new' do
   erb(:new_transaction)
 end
 
-get '/transactions/:tag' do
+get '/transactions/search/:tag' do
   @transactions = Transaction.find(params[:tag])
   erb(:show_tag)
 end
@@ -40,6 +40,7 @@ post '/transactions/:id' do
   @transaction = Transaction.find_id(params[:id])
   @transaction.update(params)
   redirect to "/transactions/#{params[:id]}"
+
 end
 
 post '/transactions' do

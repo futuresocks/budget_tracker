@@ -6,7 +6,7 @@ class Transaction
   attr_accessor :id, :merchant, :tag, :cost
 
   def initialize(options)
-    @id = options['id'].to_i if options ['id']
+    @id = options['id'] if options ['id']
     @merchant = options['merchant'].split.map { |i| i.capitalize }.join(' ')
     @tag = options['tag'].capitalize
     @cost = options['cost'].to_f
@@ -26,8 +26,8 @@ class Transaction
      sql = "UPDATE transactions SET
        merchant = '#{options['merchant']}',
        tag = '#{options['tag']}',
-       cost = #{options['cost']},
-       WHERE transactions.id = #{options['@id']};"
+       cost = '#{options['cost']}'
+       WHERE id = '#{options['id']}';"
      SqlRunner.run(sql)
    end
 

@@ -3,7 +3,7 @@
 <% @transactions.each do |transaction| %>
 <p>Amount: £<%= '%.2f' % transaction.cost %></p>
 <p>Merchant: <%= transaction.merchant %></p>
-<p>Goods purchased: <a href="/transactions/<%= transaction.tag%>"><%= transaction.tag %></a>
+<p>Goods purchased: <a href="/transactions/search/<%= transaction.tag%>"><%= transaction.tag %></a>
 </p>
 <hr  />
 <form action="/transactions/<%= transaction.id%>/delete" method="POST">
