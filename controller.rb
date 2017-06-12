@@ -26,10 +26,31 @@ get '/transactions/:tag' do
   erb(:show_tag)
 end
 
+get '/transactions/:id/edit' do
+  @transaction = Transaction.find_id(params[:id])
+  erb(:edit_transaction)
+end
+
+get '/transactions/:id' do
+  @transaction = Transaction.find_id(params[:id])
+  erb(:show_transaction)
+end
+
+post '/transactions/:id' do
+  @transaction = Transaction.find_id(params[:id])
+  @transaction.update(params)
+  redirect to "/transactions/#{params[:id]}"
+end
+
 post '/transactions' do
   @transaction = Transaction.new(params)
   @transaction.save()
   @users = User.all
   @total = Transaction.total
   erb(:transaction_created)
+end
+
+post '/transactions/:id/delete' do
+  Transaction.find_id(params[:id]).delete
+  redirect to "/transactions"
 end
