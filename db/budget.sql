@@ -10,6 +10,7 @@ budget FLOAT8
 
 CREATE TABLE transactions (
 id SERIAL8 PRIMARY KEY,
+date_bought DATE,
 merchant VARCHAR(255),
 tag VARCHAR (255),
 cost FLOAT8

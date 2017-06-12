@@ -1,0 +1,17 @@
+<h1>Edit Your Transaction</h1>
+
+<form action="/transactions/<%= @transaction.id %>" method="post">
+
+<label for ="date_bought">Date:</label>
+<input type="date" id="date_bought" name= "date_bought" value = "<%= @transaction.date_bought %>">
+
+  <label for="cost">Amount £:</label>
+  <input type="text" id="cost" name = "cost" value= "<%= '%.2f' % @transaction.cost %>">
+
+  <label for="merchant">Merchant:</label>
+  <input type="text" id="merchant" name="merchant" value= "<%= @transaction.merchant%>" >
+
+<label for="tag">Goods purchased:</label>
+<input type="text" id="tag" name="tag" value = "<%= @transaction.tag %>">
+
+<input type="submit" value="Update this transaction">

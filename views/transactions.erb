@@ -1,6 +1,7 @@
 <h1>TRANSACTIONS</h1>
 
 <% @transactions.each do |transaction| %>
+<p>Date: <%= transaction.date_bought %></p>
 <p>Amount: £<%= '%.2f' % transaction.cost %></p>
 <p>Merchant: <%= transaction.merchant %></p>
 <p>Goods purchased: <a href="/transactions/search/<%= transaction.tag%>"><%= transaction.tag %></a>

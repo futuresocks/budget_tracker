@@ -3,17 +3,18 @@ require "pry-byebug"
 
 class Transaction
 
-  attr_accessor :id, :merchant, :tag, :cost
+  attr_accessor :id, :merchant, :tag, :cost, :date_bought
 
   def initialize(options)
     @id = options['id'] if options ['id']
     @merchant = options['merchant'].split.map { |i| i.capitalize }.join(' ')
     @tag = options['tag'].capitalize
     @cost = options['cost'].to_f
+    @date_bought = options['date_bought']
   end
 
   def save
-    sql = "INSERT INTO transactions (merchant, tag, cost) VALUES ('#{@merchant}', '#{@tag}', #{@cost}) RETURNING *;"
+    sql = "INSERT INTO transactions (merchant, tag, cost, date_bought) VALUES ('#{@merchant}', '#{@tag}', #{@cost}, '#{@date_bought}') RETURNING *;"
     @id = SqlRunner.run(sql)[0]['id'].to_i()
   end
 
@@ -26,7 +27,8 @@ class Transaction
      sql = "UPDATE transactions SET
        merchant = '#{options['merchant']}',
        tag = '#{options['tag']}',
-       cost = '#{options['cost']}'
+       cost = '#{options['cost']}',
+       date_bought = '#{options['date_bought']}'
        WHERE id = '#{options['id']}';"
      SqlRunner.run(sql)
    end
