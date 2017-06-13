@@ -48,6 +48,11 @@ class Transaction
     Transaction.new(SqlRunner.run(sql).first)
   end
 
+  def self.find_by_date(start_date, end_date)
+    sql = "SELECT * FROM transactions WHERE '#{start_date}' <= date_bought AND date_bought < '#{end_date}';"
+    SqlRunner.run(sql).map { |options| Transaction.new(options)}
+  end
+
   def self.total
     sql = "SELECT * FROM transactions;"
     SqlRunner.run(sql).map{|transaction| transaction['cost'].to_f}.inject(0, :+)

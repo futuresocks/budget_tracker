@@ -26,6 +26,15 @@ get '/transactions/search/:tag' do
   erb(:show_tag)
 end
 
+get'/transactions/datesearch' do
+  erb(:transaction_datesearch)
+end
+
+post '/transactions/datesearch/results' do
+  @transactions = Transaction.find_by_date(params[:first_date], params[:second_date])
+  erb(:transactions_find)
+end
+
 get '/transactions/:id/edit' do
   @transaction = Transaction.find_id(params[:id])
   erb(:edit_transaction)
@@ -42,6 +51,10 @@ post '/transactions/:id' do
   redirect to "/transactions/#{params[:id]}"
 
 end
+
+
+
+
 
 post '/transactions' do
   @transaction = Transaction.new(params)
