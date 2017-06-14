@@ -5,6 +5,4 @@
 <% @users.each do |user| %>
 <p>Your new balance is £<%= '%.2f' % (user.budget -= @total) %>.</p>
 <% end %>
-
-<a href="/transactions">Check your transactions.</a>
-<a href="/">Return to the home page.</a>
+<hr>

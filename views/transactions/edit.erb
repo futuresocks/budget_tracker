@@ -1,4 +1,4 @@
-<h1>Edit Your Transaction</h1>
+<h1>Edit Your Transaction:</h1>
 
 <form action="/transactions/<%= @transaction.id %>" method="post">
 
@@ -14,4 +14,6 @@
 <label for="tag">Goods purchased:</label>
 <input type="text" id="tag" name="tag" value = "<%= @transaction.tag %>">
 
-<input type="submit" value="Update this transaction">
+<input class = "button" type="submit" value="Update this transaction">
+
+<hr>

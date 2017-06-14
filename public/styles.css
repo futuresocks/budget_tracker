@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'Aleo';
+    src: url('fonts/aleo_regular.otf') format('opentype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{
+  background-color: #fbe8a6;
+  font-family: 'Aleo',
+  text-align: center;
+  font-color: #303c63;
+}
+
+
+
+header{
+  width: 100%;
+  height: 4em;
+}
+
+table{
+  text-align: center;
+  text-overflow: wrap;
+  font-family: 'Aleo';
+  border: 2px;
+  border-color: black
+}
+  p, h1, h2{
+    font-family: 'Aleo';
+  }
+
+  ul{
+text-align: left;
+font-family: Aleo;
+font-size: 13px;
+kerning: 5px;
+  }
+
+li{
+    font-family: futura;
+    font-size: 10px;
+}
+
+footer{
+  font-color: #303c63;
+  background-color: #f4976c;
+  padding: 3px 5px 10px 5px;
+}
+
+.edit, .button{
+background-color: #f4976c;
+font-color: #303c63;
+color: #303c63;
+font-size: 10px;
+padding: 5px;
+height: 30px;
+}
+
+
+

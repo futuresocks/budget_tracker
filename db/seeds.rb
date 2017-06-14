@@ -2,12 +2,6 @@ require_relative '../models/transactions'
 require_relative '../models/users'
 require "pry-byebug"
 
-user1 = User.new({
-  'first_name' => "Colin",
-  'last_name' => "Bell",
-  'budget' => 500
-})
-
 transaction1 = Transaction.new({
   'merchant' => "Forbidden Planet",
   'tag' => "comics",
@@ -39,7 +33,6 @@ transaction4 = Transaction.new({
 
 User.clear
 Transaction.clear
-user1.save
 transaction1.save
 transaction2.save
 transaction3.save

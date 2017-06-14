@@ -1,0 +1,24 @@
+<h1>Your spending on <%= params[:tag] %>:</h1>
+
+<table>
+  <tr>
+    <th>Date:</th>
+    <th>Amount:</th>
+    <th>Merchant:</th>
+  </tr>
+  <% @transactions.each do |transaction| %>  
+  <tr>
+    <td><%= transaction.date_bought %></td>
+    <td>£<%= '%.2f' % transaction.cost %></td>
+    <td><%= transaction.merchant %></td>
+    <td>
+      <form action="/transactions/<%= transaction.id%>/delete" method="POST">
+        <input class = "button" type="submit" value="Delete this transaction"></form>
+        <p><a class = "edit" href="/transactions/<%= transaction.id%>/edit">Edit this transaction</a></p>
+      </td></tr>
+      <% end %>
+      </table>
+
+<p>Total spent on <%= params[:tag]%> = £<%= '%.2f' % @transactions.map{|transaction| transaction.cost.to_f}.inject(0, :+)%></p>
+
+<hr>

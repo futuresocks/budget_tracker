@@ -31,5 +31,14 @@ class User
     return "#{@first_name} #{@last_name}"
   end
 
+  def update_budget(options)
+    sql = "UPDATE users SET 
+    budget = '#{options['budget'].to_f}'
+    where id = '#{@id}';"
+    SqlRunner.run(sql)
+  end
+
+
+
 
 end

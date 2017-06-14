@@ -1,0 +1,13 @@
+<h1>Update Your Budget</h1>
+
+<% @users.each do |user| %>
+
+<form action="/budget/edit" method="post">
+
+<label for ="budget">Enter Your New Budget £: </label>
+<input type="budget" id="budget" name= "budget" value = "<% user.budget %>">
+
+<input type="submit" value="Update Your Budget">
+
+<% end %>
+<hr>

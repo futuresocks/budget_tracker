@@ -25,7 +25,7 @@ class Transaction
 
   def update(options)
      sql = "UPDATE transactions SET
-       merchant = '#{options['merchant']}',
+      merchant = '#{options['merchant']}',
        tag = '#{options['tag']}',
        cost = '#{options['cost']}',
        date_bought = '#{options['date_bought']}'

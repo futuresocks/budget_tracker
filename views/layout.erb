@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Budgie - your personal budget tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header><nav> </nav></header>
+<main>
+  <%= yield %>
+</main>
+<footer>
+<ul>Manage Your Budget:
+<li><a href="/budget">View your budget</a></li>
+<li><a href="/budget/edit">Edit your budget</a>
+</li></ul>
+<ul>Manage Your Transactions:
+<li><a href="/transactions">View your transactions</a></li>
+<li><a href="/transaction/new">Add a new transaction</a></li>
+<li><a href="/transactions/datesearch">Search your transactions by date
+</li></ul>
+</footer>
+
+</body>
+
+</html>
+

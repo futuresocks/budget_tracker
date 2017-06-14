@@ -1,13 +1,8 @@
-<h1>CASH TRACKER</h1>
-
 <% @users.each do |user| %>
 <p>Hello, <%= user.full_name %>.</p> 
 <p>Your current balance is £<%= '%.2f' % (user.budget -= @total) %>.</p>
 <% if user.budget < 0 %>
-  <p>WARNING - YOU ARE OVER BUDGET BY £<%= '%.2f' % user.budget.abs%></p>
+  <h2>WARNING - YOU ARE OVER BUDGET BY £<%= '%.2f' % user.budget.abs%></h2>
 <% end %>
 <% end %>
-
-
-
-<a href="/transactions">Check your transactions.</a>
+<hr>
